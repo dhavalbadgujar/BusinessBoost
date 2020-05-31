@@ -1,0 +1,39 @@
+{{>VisitorNav}}
+<br><br>
+    <center>
+    <div class="container">
+
+    <div class="card" style="width: 32rem;">
+      <div class="card-header" style="background-color: #05386B;color: white;">
+        <h2> <center><strong>Forgot Password ?</strong></center></h2>
+      </div>
+      <div class="card-body">
+        <center>
+        <form action="/otp?_csrf={{csrfToken}}" method="post">
+
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Enter email" oninvalid="setCustomValidity('Enter valid Emailid')" required>
+          </div>
+          
+         <!--<input type="hidden" name="_csrf" value="{{ csrfToken }}">-->
+           <div class="form-group">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon1" style="background-color:#05386B ;color:white ;">
+              <strong>Submit</strong></button>
+          </div>
+        </form></center>
+          <div class="form-group">
+                        {{#if hasErrors}}
+                <div class="alert alert-danger" role="alert">
+                    {{# each messages}}
+                        <p> {{this}}</p>
+                    {{/each}}
+                </div>
+                {{/if}}
+      </div>
+    </div>
+</center>
+
+  <br>
+<div id="aboutus">
+{{>VisitorFooter}}
+</div>

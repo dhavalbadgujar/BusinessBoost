@@ -1,0 +1,37 @@
+
+{{# each businessdata}}
+
+
+    {{# if businessname}}
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E3E2DF;">
+		<img src="/images/{{this.businesslogoname}}" class="card-img-top" style="height: 60px; width: 70px;">
+		<h2 style="font-size: 35px !important;font-weight: 900px !important; color: black !important;font-family: playfair Display;letter-spacing: 7px;  text-transform: uppercase;">&nbsp; <strong>{{this.businessname}} </strong></h2>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav ml-auto" >
+				<li class="nav-item">
+					<a class="nav-link" href="" style="letter-spacing: 2px;font-size: 18px;" ><i class="fa fa-home" aria-hidden="true" ></i>&nbsp;Home </a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="#ourservices" style="letter-spacing: 2px;font-size: 18px;"><i class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;Our Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#aboutus" style="letter-spacing: 2px;font-size: 18px;"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;About Us</a>
+				</li>
+				
+				
+
+			</ul>
+		</div>
+	</nav>
+    
+    {{else}}
+        <h1>Bulid your site</h1>
+    {{/if}}
+
+
+{{/each}}
+

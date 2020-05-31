@@ -1,0 +1,52 @@
+
+<br>
+<table id="ViewBusinessman" class="display" >
+							<thead>
+								<tr>
+									<th>Email</th>
+									<th>name</th>
+									<th>Contactno</th>
+									<th>JoinDate</th>
+									<th>Status</th>
+									
+                                    
+								</tr>
+							</thead>
+							<tbody>
+
+								<!--<tr>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+									<td>$320,800</td>
+								</tr>-->
+                                {{# each users}}
+                                    <tr>
+									<td>{{this.email}}</td>
+									<td>{{this.name}}</td>
+									<td>{{this.contactno}}</td>
+									<td>{{this.joindate}}</td>
+									<td>
+										{{# if this.status}}
+										<a href="/update/updateuserstatusf/{{this.email}}/{{this.status}}/{{this.id}}"><i class="fa fa-toggle-on" aria-hidden="true"></i></a>
+										{{else}}
+										<a href="/update/updateuserstatust/{{this.email}}/{{this.status}}/{{this.id}}"><i class="fa fa-toggle-off" aria-hidden="true"></i></a>
+										{{/if}}
+									</td>
+									
+								</tr>
+                                {{/each}}
+							</tbody>
+						</table>
+                        
+
+
+
+
+
+
+
+
+						

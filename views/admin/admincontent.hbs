@@ -1,0 +1,87 @@
+{{>AdminNav}}
+
+<div class="jumbotron" style="height:685px!important;background-color:white !important;">
+		<div class="row" style="margin-top: -65px;margin-left:-32px;">
+			<div class="col-2" style="background-color:  #E3E2DF !important; height: 685px!important;">
+				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="margin-top: 15px; ">
+
+					<a class="nav-link active" id="v-pills-vah-tab" data-toggle="pill" href="#v-pills-vah" role="tab" aria-controls="v-pills-vah" aria-selected="true" style="color:black!important">Home</a>
+
+					<a class="nav-link  " id="v-pills-vb-tab" data-toggle="pill" href="#v-pills-vb" role="tab" aria-controls="v-pills-vb" aria-selected="true" style="color:black!important">View Businessman</a>
+
+					<a class="nav-link" id="v-pills-mbc-tab" data-toggle="pill" href="#v-pills-mbc" role="tab" aria-controls="v-pills-mbc" aria-selected="false" style="color:black!important">Manage BusinessCategories</a>
+
+					<a class="nav-link" id="v-pills-muc-tab" data-toggle="pill" href="#v-pills-muc" role="tab" aria-controls="v-pills-muc" aria-selected="false" style="color:black!important">Manage Usefullcontact</a>
+
+					<a class="nav-link" id="v-pills-map-tab" data-toggle="pill" href="#v-pills-map" role="tab" aria-controls="v-pills-map" aria-selected="false" style="color:black!important">Manage Profile</a>
+
+					<a class="nav-link" id="v-pills-vas-tab" data-toggle="pill" href="#v-pills-vas" role="tab" aria-controls="v-pills-vas" aria-selected="false" style="color:black!important">View Site</a>
+
+					
+					
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+			<div class="col-9">
+				<div class="tab-content" id="v-pills-tabContent"  style="margin-left:2%;margin-top:2%;" >
+
+
+					<div class="tab-pane fade show active " id="v-pills-vah" role="tabpanel" aria-labelledby="v-pills-vah-tab">
+						
+                        {{>AdminHome}}
+
+					</div>
+
+
+
+
+					<div class="tab-pane fade show " id="v-pills-vb" role="tabpanel" aria-labelledby="v-pills-vb-tab">
+						
+
+                        {{>AdminViewBusinessman}}
+
+					</div>
+
+
+
+					
+					<div class="tab-pane fade" id="v-pills-mbc" role="tabpanel" aria-labelledby="v-pills-mbc" >
+						
+						{{>ManageBusinessCategories}}
+
+					</div>
+
+
+
+					<div class="tab-pane fade" id="v-pills-muc" role="tabpanel" aria-labelledby="v-pills-muc-tab">
+						
+
+						{{>ManageUsefullcontact}}
+					</div>
+
+
+					<div class="tab-pane fade" id="v-pills-map" role="tabpanel" aria-labelledby="v-pills-map-tab">
+						
+							
+						{{>ManageAdminProfile}}
+					</div>
+
+					<div class="tab-pane fade" id="v-pills-vas" role="tabpanel" aria-labelledby="v-pills-vas-tab">
+						
+							
+						{{>Manageviewallsite}}
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+	</div>

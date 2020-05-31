@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Business Boost</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.com/libraries/Chart.js"/>
+
+
+
+
+
+  </head>
+  <body>
+    {{{body}}}
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#ViewBusinessman').DataTable();
+		} );
+    	$(document).ready(function() {
+			$('#ViewBusinessmanCategories').DataTable();
+		} );
+		$(document).ready(function() {
+			$('#Viewusefullcontact').DataTable();
+		} );
+			$(document).ready(function() {
+			$('#ViewBusinessServices').DataTable();
+		} );
+		
+			
+		$(document).ready(function() {
+			//console.log("ghjkjgh");
+
+			$('#bcid').change(function(){
+						item=$("#bcid").val();
+						$('#sbcid').empty();
+						$dropdown= $("#sbcid");
+						$.ajax({
+							
+							url: '/getsubcdata/'+item,
+							
+							type: 'GET',
+							dataType: 'json',
+							success:(data)=>{
+							//console.log('ajax succss!',data);
+							/*$('#sbcid').val(data[0]);
+							$('#sbcid').text(data[2]);
+							$('#sbcid').text(data[2]);*/
+							//$dropdown.append($("<option />").val(this.bcategory).text(this.subcategoryname));
+							//$dropdown.append($("<option />").val(this.bcategory).text(this.subcategoryname));
+
+							$.each(data, function() {
+    						$dropdown.append($("<option />").val(this._id).text(this.subcategoryname));
+								});
+							}
+							
+						});
+
+
+					});
+		} );
+
+	$(document).ready(function() {
+			//console.log("ghjkjgh");
+
+			$('#bccid').change(function(){
+						item=$("#bccid").val();
+						$('#ssbcid').empty();
+						$dropdown= $("#ssbcid");
+						$.ajax({
+							
+							url: '/getsubcdata/'+item,
+							
+							type: 'GET',
+							dataType: 'json',
+							success:(data)=>{
+							//console.log('ajax succss!',data);
+							/*$('#sbcid').val(data[0]);
+							$('#sbcid').text(data[2]);
+							$('#sbcid').text(data[2]);*/
+							//$dropdown.append($("<option />").val(this.bcategory).text(this.subcategoryname));
+							//$dropdown.append($("<option />").val(this.bcategory).text(this.subcategoryname));
+
+							$dropdown.append($("<option />").val(null).text("Choose SUB BUSINESS CATEGORIES"));
+								
+							$.each(data, function() {
+								
+    						$dropdown.append($("<option />").val(this._id).text(this.subcategoryname));
+								});
+							}
+							
+						});
+
+
+					});
+		} );
+	
+
+
+		$(document).ready(function() {
+			//console.log("ghjkjgh");
+
+			$('#ssbcid').change(function(){
+						item=$("#ssbcid").val();
+						//$('#ssbcid').empty();
+						$dropdown= $("#ssbcid");
+						$.ajax({
+							
+							url: '/mygetsubcdata/'+item,
+							
+							type: 'GET',
+							dataType: 'json',
+							success:(data)=>{
+							console.log('ajax succss!',data);
+							//console.log('uioiui',JSON.stringify(data));
+							
+							var mydata=JSON.stringify(data);
+							console.log('------------------------------',data);
+							console.log('------------------------------',mydata.id);
+							console.log('------------------------------',data);
+							//window.location.href = "http://localhost:3000/visitor/Getcatweb?mydata="+data;
+							//window.location.href = "http://localhost:3000/visitor/Getcatweb?mydata="+mydata;
+							//window.location = "//www.google.com/";
+							// window.location.href = data.localhost/visitor/Getcatweb;
+							/*$('#sbcid').val(data[0]);
+							$('#sbcid').text(data[2]);
+							$('#sbcid').text(data[2]);*/
+							//$dropdown.append($("<option />").val(this.bcategory).text(this.subcategoryname));
+							//$dropdown.append($("<option />").val(this.bcategory).text(this.subcategoryname));
+
+							//$.each(data, function() {
+								
+								 $.each(data, function() {
+								
+    						 $('#fetchid').val(this._id);
+							 console.log(this._id);
+								});
+							
+    						//$dropdown.append($("<option />").val(this._id).text(this.subcategoryname));*/
+							
+							}
+							
+						});
+
+
+					});
+		} );
+	
+	
+
+		$(document).ready(function(){
+
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+        
+        if(value == "all")
+        {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        }
+        else
+        {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
+        }
+    });
+    
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
+
+});
+
+
+
+ let myChart=document.getElementById('myChart').getContext('2d');
+
+            Chart.defaults.global.defaultFontFamily='Lato';
+              Chart.defaults.global.defaultFontSize=40;
+                Chart.defaults.global.defaultFontColor='#777';
+            let massPopChart=new Chart(myChart,{
+                type:'doughnut',
+				//type:'pie',
+               
+                data:{
+                    labels:['Active users','Inactive users'],
+                    datasets:[{
+                        data:[{{activeuser}},{{inactiveuser}}],
+                          backgroundColor:'white',
+                        borderWidth:8,
+                        backgroundColor:[
+                        '#526069',
+                        '#E3E2DF'
+                        
+
+                        ],
+                        hoverBorderWidth:3,
+                        hoverBorderColor:'#000'
+                    }]
+
+                },
+                options:{}
+            });
+
+
+
+
+
+
+
+	</script>
+
+
+
+  </body>
+</html>

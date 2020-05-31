@@ -1,0 +1,345 @@
+
+			
+					<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-ebmd-tab" data-toggle="pill" href="#pills-ebmd" role="tab" aria-controls="pills-ebmd" aria-selected="true" style="color: white!important">Edit BusinessDetail</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-vbmd-tab" data-toggle="pill" href="#pills-vbmd" role="tab" aria-controls="pills-vbmd" aria-selected="false" style="color: white!important">View BusinessDetail</a>
+						</li>
+						
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-ebmd" role="tabpanel" aria-labelledby="pills-ebmd-tab">
+                            
+                                                    
+                        
+  <center>
+
+		<div class="jumbotron" >
+			<form action="/updatebusinesscontent/?_csrf={{csrfToken}}" method="POST" enctype="multipart/form-data" novalidate=true> 
+       	{{# each businessdata}}
+        <input type="hidden" class="form-control" name="id" value={{this.id}} > 
+				<div class="form-row">
+					<div class="form-group col-md-3">
+						<label for="inputCity">Business Name</label>
+						<input type="text" class="form-control" name="businessname" value={{this.businessname}} > {{/each}}
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputState">Business category</label>
+						<select id="bcid" class="form-control">
+							<option selected>Choose...</option> 
+							{{# each bcdata}}
+
+							<option value={{this._id}} >{{this.categoryname}}</option>
+							{{/each}}
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputState">Business Subcategory</label>
+						<select id="sbcid" name="businessubcatid" class="form-control select2">
+							<option selected>Choose...</option>
+							<option>...</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputState">City</label>
+						<select id="inputState" name="city" class="form-control select2">
+							<option selected>Choose...</option>
+							{{# each citydata}}
+
+							<option value={{this.cityName}}>{{this.cityName}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>  
+
+
+				
+				<div class="form-row">	{{# each businessdata}}
+					<div class="form-group col-md-3">
+						<label for="inputEmail4">Email-1</label>
+						<input type="email" class="form-control" name="emailid1" value="{{this.emailid1}} " >
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputPassword4">Email-2</label>
+						<input type="email" class="form-control" name="emailid2" value={{this.emailid2}} >
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputCity">Phone1</label>
+						<input type="text" class="form-control"  name="phoneno1" value={{this.phoneno1}} >
+					</div>
+
+					<div class="form-group col-md-3">
+						<label for="inputCity">Phone2</label>
+						<input type="text" class="form-control"  name="phoneno2" value={{this.phoneno2}} >
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<div class="form-group">
+							<label for="inputAddress">Address 1</label>
+							<textarea type="text" class="form-control" name="address1"  >{{this.address1}}</textarea>
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+
+						<div class="form-group">
+							<label for="inputAddress2">Address 2</label>
+							<textarea type="text" class="form-control" name="address2" >{{this.address2}}</textarea>
+						</div>
+					</div>  
+
+					<div class="form-group col-md-4">
+						<label for="inputCity">About us</label>
+						<textarea type="text" class="form-control" name="aboutus" >{{this.aboutus}}</textarea>
+					</div>
+				</div>
+				
+					<div class="form-row">
+
+						<div class="form-group col">
+
+							<div class="form-group">
+								<label for="inputAddress2">Gst no</label>
+								<input type="text" class="form-control" name="gstno" value={{this.gstno}}  >
+							</div>
+						</div> 	
+
+						<div class="form-group col">
+
+							<label for="inputAddress2">Business Logo</label><br>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input"  name="businesslogo" value={{this.businesslogoname}} >
+								<label class="custom-file-label" for="inputGroupFile01">Select logo</label>
+							</div>
+						</div>{{/each}}
+							
+
+					</div>
+
+				
+						<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+						<button type="submit" class="btn btn-primary">Edit</button>
+
+
+
+
+
+					</form>
+
+				</div>
+
+
+
+
+			</center>
+                        
+                            
+                    </div>
+                  
+						<div class="tab-pane fade" id="pills-vbmd" role="tabpanel" aria-labelledby="pills-vbmd-tab">
+                            
+                        
+
+
+								<center>
+
+
+							<div class="card mb-3" style="max-width: 1000px;">
+								{{# each businessdata}}
+								<div class="row no-gutters">
+									<div class="col-md-4">
+										{{# if this.businesslogoname}}
+										<img src="/images/{{this.businesslogoname}}" class="card-img-top" alt="...">
+										<h4>Business logo</h4>
+										{{else}}
+										<img src="/images/setlogoimage.png" class="card-img-top" alt="set Businesslogo image">
+										<h4>Set Businesslogo</h4>
+										{{/if}}
+										
+									</div>
+								
+									<div class="col-md-7">
+										<div class="card-body">
+											{{# if this.businessname}}
+											<h3 class="card-title"><u>{{this.businessname}}</u></h3>
+											{{else}}
+											<h3 class="card-title">Set BusinessName</h3>
+											{{/if}}
+
+												{{/each}}
+
+											{{# each subcat}}
+											{{# if this.subcategoryname}}
+											<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Business</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.subcategoryname}}</p>
+													</div>	
+												</div>
+											{{else}}
+											<center><p class="card-text">Set businessubcatid</p></center>
+											{{/if}}{{/each}}
+
+
+											{{# each businessdata}}
+											{{# if this.address1}}
+											<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Address1</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.address1}}</p>
+													</div>	
+												</div>
+											{{else}}
+											<center><p class="card-text">Set Address1</p></center>
+											{{/if}}
+
+
+											{{# if this.address2}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Address2</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.address2}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set Address2</p></center>
+											{{/if}}
+
+
+											{{# if this.city}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">City</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.city}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set City</p></center>
+											{{/if}}
+
+
+
+											{{# if this.emailid1}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Emailid1</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.emailid1}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set Emailid1</p></center>
+											{{/if}}
+					
+
+
+											{{# if this.emailid2}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Emailid2</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.emailid2}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set Emailid2</p></center>
+											{{/if}}
+
+
+											{{# if this.phoneno1}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Phoneno1</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.phoneno1}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set honeno1</p></center>
+											{{/if}}
+
+
+											
+											{{# if this.phoneno2}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Phoneno2</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.phoneno2}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set Phoneno2</p></center>
+											{{/if}}
+
+											{{# if this.aboutus}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Aboutus</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.aboutus}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set Aboutus</p></center>
+											{{/if}}
+
+											{{# if this.gstno}}
+												<div class="form-row">
+													<div class="form-group col-3">
+														<p class="card-text">Gstno</p>
+													</div> 	
+													<div class="form-group col-9">
+														<p class="card-text">{{this.gstno}}</p>
+													</div>	
+												</div>
+											{{else}}
+												<center><p class="card-text">Set Gstno</p></center>
+											{{/if}}
+
+
+
+											
+											<!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+										</div>
+									</div>
+								</div>
+								{{/each}}
+							</div>
+
+						</center>
+
+
+
+
+
+
+ 
+                            
+                            
+                            
+                            
+                            
+                            </div>
+						
+					</div>
+
+			
+
+      

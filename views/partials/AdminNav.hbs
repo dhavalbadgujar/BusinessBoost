@@ -1,0 +1,50 @@
+<html>
+    <head>
+    <title>A D M I N</title>   
+    <style type="text/css">
+		html
+		{
+			scroll-behavior: smooth;
+		}
+		
+		.nav-pills{
+			color:white;
+		}
+		.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+			color: white;
+			background-color:#557a95;
+		}
+
+		
+	</style> 
+    
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bd-light" style="background-color: #526069 !important;">
+		<i class="fa fa-briefcase" aria-hidden="true" style="font-size: 50px;color: white !important;"></i>
+		<h2 style="font-weight: 900 !important; color: white !important;font-family: playfair Display;letter-spacing: 5px;">&nbsp; <strong>Ⓑᴜꜱɪɴᴇꜱꜱ Ⓑᴏᴏꜱᴛ </strong></h2>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav ml-auto" >
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" style="letter-spacing: 2px;font-size: 18px;color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{this.username}}
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+						
+						<a class="dropdown-item" href="/logout" style="letter-spacing: 2px;font-size: 18px;"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Logout</a>
+					</div>
+				</li>
+				
+
+			</ul>
+		</div>
+	</nav>
+
+
+   
+	
+    </body>
+</html>

@@ -1,0 +1,89 @@
+
+					
+					<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-ebpp-tab" data-toggle="pill" href="#pills-ebpp" role="tab" aria-controls="pills-ebpp" aria-selected="true" style="color: white!important">Edit Password</a>
+						</li>
+						
+            
+						
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-ebpp" role="tabpanel" aria-labelledby="pills-ebpp-tab">
+                            
+                           
+                            
+
+                            <center>
+<div class="jumbotron">
+    <div class="container">
+
+    <div class="card" style="width: 25rem;">
+      <div class="card-header" style="background-color: #526069;color: white;">
+        <h2> <center><strong>change Here</strong></center></h2>
+      </div>
+      <div class="card-body">
+        <center>
+        <form action="/changepassword?_csrf={{csrfToken}}" method="POST">
+        	
+          {{# each mymaindata}}
+          <input type="hidden" class="form-control" name="_id" value="{{this._id}}">
+         {{/each}}
+
+
+          <div class="form-group">
+            <input type="password" class="form-control" name="old" placeholder="Enter old  password">
+          </div>
+
+           <div class="form-group">
+            <input type="password" class="form-control" name="new" placeholder="Enter new password">
+          </div>
+
+           <div class="form-group">
+            <input type="password" class="form-control" name="again" placeholder="Enter confirm password">
+          </div>
+          
+
+
+           <div class="form-group">
+             <!--<input type="hidden" name="_csrf" value="{{ csrfToken }}">-->
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon1" style="background-color:#526069 ;color:white ;">
+              <strong>Submit</strong></button>
+          </div>
+            
+        </form></center>
+        </div>
+        </div>
+    </div></div>
+</center>
+                            
+                            
+                            
+                    </div>
+                  
+						<div class="tab-pane fade" id="pills-vus" role="tabpanel" aria-labelledby="pills-vus-tab">
+                         
+             <div class="jumbotron">              
+      <div class="row">
+
+	
+
+         
+       
+       
+       
+
+
+      </div>
+ </div> 
+                      
+                            
+                            
+                            
+                            
+                            
+                            </div>
+						
+					</div>
+
+			

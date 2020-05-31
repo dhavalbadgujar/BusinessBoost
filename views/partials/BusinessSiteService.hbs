@@ -1,0 +1,35 @@
+{{# if productdata}}
+<div id="ourservices">
+<div class="container">
+    <hr>
+    <center><strong><h4>Services / Products</h4></strong></center>
+    <hr>
+ <div class="row">
+
+	{{# each productdata}}
+
+        <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/{{this.imagename}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <center>
+                        <h5 class="card-title"> {{this.productname}}</h5>
+                        </center>
+                        {{# if productdes}}
+                        <p class="card-text">Description - {{this.productdes}}</p>
+                        {{/if}}
+                        {{# if productprice}}
+                        <p class="card-text">Price - {{this.productprice}}</p>
+                        {{/if}}
+                    
+                    </div>
+                
+                </div>
+         </div>
+
+    {{/each}}
+
+</div>
+</div>
+</div>
+{{/if}}

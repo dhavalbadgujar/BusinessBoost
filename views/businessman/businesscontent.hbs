@@ -1,0 +1,76 @@
+{{>BusinessmanNav}}
+<!--<h1>businessman</h1>{{this.username}} -->
+	
+<div class="jumbotron" style="height: 600px !important; background-color:white !important;">
+		<div class="row" style="margin-top: -65px;margin-left:-32px;">
+			<div class="col-2" style="background-color:  #E3E2DF !important; height: 700px!important;">
+				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="margin-top: 15px; ">
+
+					<a class="nav-link active" id="v-pills-ebd-tab" data-toggle="pill" href="#v-pills-ebd" role="tab" aria-controls="v-pills-ebd" aria-selected="true" style="color:black!important">Edit BusinessDetail</a>
+
+					<a class="nav-link" id="v-pills-es-tab" data-toggle="pill" href="#v-pills-es" role="tab" aria-controls="v-pills-es" aria-selected="false" style="color:black!important">Edit Slider</a>
+
+					<a class="nav-link" id="v-pills-ebs-tab" data-toggle="pill" href="#v-pills-ebs" role="tab" aria-controls="v-pills-ebs" aria-selected="false" style="color:black!important">Edit Busniess Service</a>
+
+					<a class="nav-link" id="v-pills-ebp-tab" data-toggle="pill" href="#v-pills-ebp" role="tab" aria-controls="v-pills-ebp" aria-selected="false" style="color:black!important">Edit Profile</a>
+				
+				{{# each businessdata}}
+                    <a class="nav-link" href="/businesswebsite/businesswebsitecontent/{{this.id}}" style="color:black!important"> <i class="fa fa-globe" aria-hidden="true"></i> View site</a>
+ 				{{/each}}
+					
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+			<div class="col-9">
+				<div class="tab-content" id="v-pills-tabContent"  style="margin-left:2%;margin-top:2%;" >
+
+					<div class="tab-pane fade show active" id="v-pills-ebd" role="tabpanel" aria-labelledby="v-pills-ebd-tab">
+						
+					<!--	{{# each businessdata}}
+                      <img src="/images/{{this.businesslogoname}}" >  
+					  {{/each}} -->
+					 <!-- <img src="/images/businesslogo1584210027273.jpg" class="img-fluid" alt="Responsive image"> -->
+					   
+						{{>ManageBusinessmandetails}}
+
+					</div>
+
+
+
+
+					<div class="tab-pane fade" id="v-pills-es" role="tabpanel" aria-labelledby="v-pills-es" >
+
+						{{>Manageslider}}
+
+					</div>
+
+
+
+					<div class="tab-pane fade" id="v-pills-ebs" role="tabpanel" aria-labelledby="v-pills-ebs-tab">
+						
+
+						{{>ManageBusinessService}}
+					</div>
+
+					
+					<div class="tab-pane fade" id="v-pills-ebp" role="tabpanel" aria-labelledby="v-pills-ebp-tab">
+						
+
+						{{>ManageBusinessProfile}}
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+

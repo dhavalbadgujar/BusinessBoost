@@ -1,0 +1,99 @@
+
+<br>
+<div id="aboutus"></div>
+<footer class="jumbotron">
+
+  <div class="container">
+
+    <div class="row">
+
+
+      <div class="col-md-6 mb-4">
+
+ 
+        <strong><h4>Contact Info</h4></strong>
+        {{# each businessdata}}
+						{{# if this.address1}}
+													<p class="card-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp; {{this.address1}}</p>
+						{{/if}}
+            {{# if this.address2}}
+													<p class="card-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp; {{this.address2}}</p>
+						{{/if}}
+            {{# if this.city}}
+													<p class="card-text"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp; {{this.city}}</p>
+						{{/if}}
+             {{# if this.emailid1}}
+													<p class="card-text"> <i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp; {{this.emailid1}}</p>
+						{{/if}}
+            {{# if this.emailid2}}
+													<p class="card-text"> <i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp; {{this.emailid2}}</p>
+						{{/if}}
+            {{# if this.phoneno1}}
+													<p class="card-text"> <i class="fa fa-phone" aria-hidden="true"></i> &nbsp; {{this.phoneno1}}</p>
+						{{/if}}
+            {{# if this.phoneno2}}
+													<p class="card-text"> <i class="fa fa-phone" aria-hidden="true"></i> &nbsp; {{this.phoneno2}}</p>
+						{{/if}}
+            {{# if this.aboutus}}
+													<p class="card-text"> <i class="fa fa-info" aria-hidden="true"></i> &nbsp;  About us - {{this.aboutus}}</p>
+						{{/if}}
+            {{# if this.gstno}}
+													<p class="card-text"> <i class="fa fa-sticky-note-o" aria-hidden="true"></i> &nbsp; GSTNO - {{this.gstno}}</p>
+						{{/if}}
+      {{/each}}
+
+
+
+
+      </div>
+  
+
+      <div class="col-md-6 mb-4">
+         <strong><h4>Get In Touch / Order Now </h4></strong>
+        <form action="/sendBusinessmail" method="POST">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {{# each businessdata}}
+        <input type="hidden" name="bid" class="form-control" value="{{this._id}}" >
+         <input type="hidden" name="myemail" class="form-control" value="{{this.emailid1}}" >
+          {{/each}}
+          <div class="form-row">
+            <div class="form-group col-md-12">
+            <label for="inputAddress">Name</label>
+            <input type="text" name="name" class="form-control" >
+          </div>
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" name="email" class="form-control" >
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Mobile No</label>
+              <input type="text" name="mobileno" class="form-control" >
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="inputAddress2">Subject</label>
+            <input type="text" name="subject" class="form-control" >
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputCity">Message</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+          
+          <center>
+          <button type="submit" class="btn btn-primary" >Submit</button></center>
+</form>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright :
+    <a href=""> Businessboost.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>

@@ -1,0 +1,38 @@
+{{>VisitorNav}}
+
+<div class="">
+<br>
+    <div class="container">
+
+    <table id="Viewusefullcontact" class="display" >
+							<thead>
+								<tr>
+									
+									<th>Name</th>
+                                    <th>Contactno</th>
+                                     <th>Service</th>
+                                 
+								</tr>
+							</thead>
+							<tbody>
+
+							
+                      {{# each mycontact}}
+                                    <tr>
+									
+									<td>{{this.name}}</td>
+                                    <td>{{this.contactno}}</td>
+                                    <td>{{this.service}}</td>
+                               
+								</tr>
+                                {{/each}}
+							</tbody>
+						</table>
+
+    </div>
+</div>
+
+ <br>
+<div id="aboutus">
+{{>VisitorFooter}}
+</div>

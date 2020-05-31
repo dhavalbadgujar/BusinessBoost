@@ -1,0 +1,54 @@
+{{>VisitorNav}}
+
+<div class="container">
+<hr>
+    {{# each subdata}}
+    <center><strong><h4>{{this.subcategoryname}}</h4></strong></center>
+    {{/each}}
+    <hr>
+</div>
+
+
+
+{{# if bdata}}
+    
+    <br>
+
+    <div class="container-fluid">
+    <div class="row">
+
+    {{# each bdata}}
+
+      <div class="col-3">  
+    <a href="/businesswebsite/businesswebsitecontent/{{this.id}}">
+        <div class="card" style="width: 18rem;">
+  <img src="/images/{{this.businesslogoname}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <center><h5 class="card-title"><strong>{{this.businessname}}</strong></h5></center>
+    <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{this.city}}</p>
+    <p class="card-text"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;{{this.emailid1}}</p>
+     <p class="card-text"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;{{this.phoneno1}}</p>
+    
+  </div>
+</div>
+</a>
+
+</div>
+
+    {{/each}}
+
+
+    </div></div>
+{{/if}}
+
+
+<div id="ourservices"><br>	<center>
+	{{>VisitorService}}
+
+</div>
+
+
+ <br>
+<div id="aboutus">
+{{>VisitorFooter}}
+</div>

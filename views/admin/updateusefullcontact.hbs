@@ -1,0 +1,29 @@
+{{>AdminNav}} 
+
+ <center>
+<br>
+    <div class="container">
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-header" style="background-color: #526069;color: white;">
+        <h2> <center><strong>Add Here</strong></center></h2>
+      </div>
+      <div class="card-body">
+        <center>
+        <form action="/updateusefullcontact" method="POST">
+          <div class="form-group">
+               <input type="hidden" class="form-control" name="id"  value="{{usefullcontactdata._id}}">
+            <input type="text" class="form-control" name="name" placeholder="Enter Name" value="{{usefullcontactdata.name}}">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="contactno" placeholder="Enter Contactno" value="{{usefullcontactdata.contactno}}">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="service" placeholder="Enter service" value="{{usefullcontactdata.service}}">
+          </div>
+           <div class="form-group">
+             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon1" style="background-color:#526069 ;color:white ;">
+              <strong>Submit</strong></button>
+          </div>
+        </form></center>

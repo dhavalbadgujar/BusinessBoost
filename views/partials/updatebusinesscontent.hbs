@@ -1,0 +1,61 @@
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-ebmd-tab" data-toggle="pill" href="#pills-ebmd" role="tab" aria-controls="pills-ebmd" aria-selected="true" style="color: white!important">Edit BusinessDetail</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-vbmd-tab" data-toggle="pill" href="#pills-vbmd" role="tab" aria-controls="pills-vbmd" aria-selected="false" style="color: white!important">View BusinessDetail</a>
+						</li>
+						
+					</ul>
+
+<!--<form action="/updatebusinesscontent" method="post">
+    	<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+    <input type="text" name="fname">
+    <input type="text" name="lname">
+    <input type="submit">
+</form>-->
+
+	<div class="jumbotron">
+			<form action="/updatebusinesscontent/?_csrf={{csrfToken}}" method="post" >
+                <input type="text" name="fname">
+           <!--<input type="hidden" name="_csrf" value="{{csrfToken }}"> -->
+
+            			<div class="form-row">
+					<div class="form-group col-md-3">
+						<label for="inputCity">Business Name</label>	{{# each businessdata}}
+						<input type="text" class="form-control" name="businessname" value={{this.businessname}} > {{/each}}
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputState">Business category</label>
+						<select id="bcid" class="form-control">
+							<option selected>Choose...</option> 
+							{{# each bcdata}}
+
+							<option value={{this._id}} >{{this.categoryname}}</option>
+							{{/each}}
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputState">Business Subcategory</label>
+						<select id="sbcid" name="businessubcatid" class="form-control select2">
+							<option selected>Choose...</option>
+							<option>...</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="inputState">City</label>
+						<select id="inputState" name="city" class="form-control select2">
+							<option selected>Choose...</option>
+							{{# each citydata}}
+
+							<option value={{this.cityName}}>{{this.cityName}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>  
+        
+
+                	<button type="submit" class="btn btn-primary">Edit</button> 
+            </form>
+    </div>        

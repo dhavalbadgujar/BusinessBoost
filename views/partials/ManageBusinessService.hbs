@@ -1,0 +1,119 @@
+
+					
+					<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-aus-tab" data-toggle="pill" href="#pills-aus" role="tab" aria-controls="pills-aus" aria-selected="true" style="color: white!important">Add Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-vus-tab" data-toggle="pill" href="#pills-vus" role="tab" aria-controls="pills-vus" aria-selected="false" style="color: white!important">View Services</a>
+						</li>
+            
+						
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-aus" role="tabpanel" aria-labelledby="pills-aus-tab">
+                            
+                           
+                            
+
+                            <center>
+<div class="jumbotron">
+    <div class="container">
+
+    <div class="card" style="width: 25rem;">
+      <div class="card-header" style="background-color: #526069;color: white;">
+        <h2> <center><strong>Add Here</strong></center></h2>
+      </div>
+      <div class="card-body">
+        <center>
+        <form action="/business/addproduct/?_csrf={{csrfToken}}" method="POST" enctype="multipart/form-data">
+        	{{# each businessdata}}
+        <input type="hidden" class="form-control" name="id" value={{this.id}} > 
+        {{/each}}
+          <div class="form-group">
+            <input type="text" class="form-control" name="productname" placeholder="Enter Product Name">
+          </div>
+          <div class="form-group">
+            <textarea type="text" class="form-control" name="productdes" placeholder="Enter Product Description"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="productprice" placeholder="Enter Price">
+          </div>
+           <div class="form-group">
+          <div class="custom-file">
+								<input type="file" class="custom-file-input"  name="productimage"  >
+								<label class="custom-file-label" for="inputGroupFile01">Select Image</label>
+							</div>
+          </div>
+
+
+           <div class="form-group">
+             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon1" style="background-color:#526069 ;color:white ;">
+              <strong>Submit</strong></button>
+          </div>
+        </form></center>
+        </div>
+        </div>
+    </div></div>
+</center>
+                            
+                            
+                            
+                    </div>
+                  
+						<div class="tab-pane fade" id="pills-vus" role="tabpanel" aria-labelledby="pills-vus-tab">
+                         
+             <div class="jumbotron">              
+      <div class="row">
+
+	{{# each myproduct}}
+     
+
+
+  <div class="col-4">
+              <div class="card" style="width: 18rem;">
+          <img src="/images/{{this.imagename}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <center>
+            <h5 class="card-title"> {{this.productname}}</h5>
+            </center>
+            {{# if productdes}}
+               <p class="card-text">Description - {{this.productdes}}</p>
+            {{/if}}
+             {{# if productprice}}
+               <p class="card-text">Price - {{this.productprice}}</p>
+            {{/if}}
+            <hr>
+            <div style="float: right;">
+             
+            <a href="/kjhgffgh{{this.id}}"  style=""><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:#557a95;font-size: 30px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="/delete/deleteserviceproduct/{{this.id}}"  style=""><i class="fa fa-trash" aria-hidden="true" style="color:#557a95;font-size: 30px;"></i></a>
+          </div>
+          </div>
+      
+         
+        </div>
+       </div>
+
+        {{/each}}
+
+         
+       
+       
+       
+
+
+      </div>
+ </div> 
+                      
+                            
+                            
+                            
+                            
+                            
+                            </div>
+						
+					</div>
+
+			
